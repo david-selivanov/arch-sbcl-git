@@ -15,10 +15,16 @@ depends=('zlib')
 provides=('common-lisp' 'cl-asdf')
 makedepends=('sbcl')
 source=("https://downloads.sourceforge.net/project/sbcl/sbcl/$pkgver/$pkgname-$pkgver-source.tar.bz2"
-  "arch-fixes.lisp")
+        "arch-fixes.lisp"
+          increase-tls.patch)
 sha256sums=('ce24b62b88482621c228a4fd6c802350330b6263e1b1b98460eeb4a81d7fb335'
-            'b5a6468dcbc1012cae2c3cda155762a37b6d96ef89bba4f723315063b0b5e7ce')
+            'b5a6468dcbc1012cae2c3cda155762a37b6d96ef89bba4f723315063b0b5e7ce'
+            'SKIP')
 
+prepare() {
+  cd "$srcdir/$pkgname-$pkgver"
+  patch -p 1 -i $srcdir/increase-tls.patch
+}
 
 build() {
   cd "$srcdir/$pkgname-$pkgver"

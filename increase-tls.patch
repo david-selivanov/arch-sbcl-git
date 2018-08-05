@@ -1,0 +1,13 @@
+diff --git a/src/compiler/generic/parms.lisp b/src/compiler/generic/parms.lisp
+index 2bf9dbce7..ac7292fa6 100644
+--- a/src/compiler/generic/parms.lisp
++++ b/src/compiler/generic/parms.lisp
+@@ -231,7 +231,7 @@
+ 
+ ;;; Number of entries in the thread local storage. Limits the number
+ ;;; of symbols with thread local bindings.
+-(defconstant tls-size 4096)
++(defconstant tls-size 16384)
+ ;;; Refer to the lengthy comment in 'src/runtime/interrupt.h' about
+ ;;; the choice of this number. Rather than have to two copies
+ ;;; of the comment, please see that file before adjusting this.
